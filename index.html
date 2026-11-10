@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DocuMind - AI Document Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>DocuMind</h1>
+            <p>AI-powered document question answering</p>
+        </header>
+
+        <section class="upload-section">
+
+            <h2>Upload Your Document</h2>
+
+            <input type="file"
+                   id="pdfFile"
+                   accept=".pdf">
+
+            <button onclick="uploadPDF()">
+                Upload & Process PDF
+            </button>
+
+            <p id="uploadStatus"></p>
+
+        </section>
+
+        <section class="chat-section">
+
+            <h2>Ask Your Documents</h2>
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="welcome">
+                    Upload a PDF and ask questions
+                    about its content.
+                </div>
+            </div>
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="question"
+                    placeholder="Ask something about your PDF..."
+                >
+
+                <button onclick="askQuestion()">
+                    Ask
+                </button>
+
+            </div>
+
+            <label class="compare-option">
+                <input type="checkbox" id="compare">
+                Compare with and without RAG
+            </label>
+
+        </section>
+
+        <footer>
+            <p>DocuMind | Retrieval-Augmented Generation</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
